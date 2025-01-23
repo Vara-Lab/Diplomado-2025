@@ -3,7 +3,7 @@
 ## Step 1: Open Contract on Gitpod
 
 <p align="center">
-  <a href="https://gitpod.io/#https://github.com/Vara-Lab/Tutorials-2024.git" target="_blank">
+  <a href="https://github.com/Vara-Lab/Diplomado-2025.git" target="_blank">
     <img src="https://gitpod.io/button/open-in-gitpod.svg" width="240" alt="Gitpod">
   </a>
 </p>
