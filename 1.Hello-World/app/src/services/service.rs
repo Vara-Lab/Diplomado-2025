@@ -1,10 +1,10 @@
 use sails_rs::prelude::*;
 
 #[derive(Default)]
-pub struct MyService;
+pub struct Service;
 
 #[service]
-impl MyService {
+impl Service {
     pub fn new() -> Self {
         Self
     }
