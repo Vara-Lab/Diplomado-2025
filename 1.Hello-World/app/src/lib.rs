@@ -15,9 +15,7 @@ impl Program {
     // Application constructor (it is an associated function)
     // It can be called once per application lifetime.
     pub fn new() -> Self {
-        // Init the state
-        Service::seed();
-
+        
         Self
     }
 
