@@ -136,12 +136,13 @@ impl VotingService {
     }
 
     // Query service to get vote counts for proposals
-    pub fn get_vote_counts(&self) -> HashMap<u64, u64> {
+    pub fn get_vote_counts(&self) -> Vec<(u64, u64)> {
         State::state_ref()
             .vote_counts
-            .clone()
+            .iter()
+            .map(|(k, v)| (*k, *v))
+            .collect()
     }
-
     // Query service to get voter information
     pub fn get_voter_info(&self, voter_id: ActorId) -> Option<Voter> {
         State::state_ref()
@@ -160,8 +161,13 @@ impl VotingService {
     // Additional service to conclude the voting
     pub fn conclude_voting(&self) -> Option<(u64, u64)> {
         let state = State::state_ref();
-        state.vote_counts.iter().max_by_key(|&(_, &count)| count).cloned()
+        state
+            .vote_counts
+            .iter()
+            .max_by_key(|&(_, &count)| count)
+            .map(|(&k, &v)| (k, v))
     }
+    
 }
 
 

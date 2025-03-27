@@ -6,7 +6,7 @@ use sails_rs::prelude::*;
 pub mod services;
 
 // Import service to be used for the program
-use services::service::Service;
+use services::service::*;
 
 pub struct Program;
 
@@ -15,15 +15,13 @@ impl Program {
     // Application constructor (it is an associated function)
     // It can be called once per application lifetime.
     pub fn new() -> Self {
-        // Init the state
-        Service::seed();
-
+    
         Self
     }
 
     
     #[route("Service")]
-    pub fn service_svc(&self) -> Service {
-        Service::new()
+    pub fn service_svc(&self) -> VotingService{
+        VotingService::new()
     }
 }
